@@ -4,11 +4,6 @@
     font: size 24px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.main {
-    padding-top:50px;
-    margin:auto;
-    align-items: center;
-}
 .img-container {
     display: flex;
     flex-wrap:wrap;
