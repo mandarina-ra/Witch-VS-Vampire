@@ -60,26 +60,18 @@ body {
   
   .img-ind:hover .overlay {
     opacity: 1;
+    cursor: pointer;
   }
   
-.main1 {
+.main {
     color:white;
     text-align: center;
-    font-size: 3em;
+    font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
-    padding-top: 50px;
+    padding-top: 10px;
     margin-top:20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add this line for text shadow */
 }
-
-.tales {
-    color: white;
-    text-align: center;
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
-
 .selected {
     box-shadow: 0 0 10px 5px rgba(255, 0, 212, 0.5);
 }
