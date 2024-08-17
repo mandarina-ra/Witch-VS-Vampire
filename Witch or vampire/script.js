@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+  const fightButton = document.getElementById("fight-button");
+  fightButton.disabled = true; // Initially disable the "Fight" button
+
   function createParagraph() {
       const para = document.createElement("p");
       const messages = ["You Won!", "Oh no, you lost :( ", "Victory!", "Sacre bleu! Better luck next time", "Success!"];
@@ -7,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
       para.textContent = randomMessage;
       para.classList.add("styled-paragraph");
       document.body.appendChild(para);
+      fightButton.disabled = true; // Disable the "Fight" button after click
 
       const resetBtn = document.createElement("button");
       resetBtn.textContent = "Try Again";
@@ -18,20 +22,23 @@ document.addEventListener("DOMContentLoaded", function() {
   function resetParagraphs() {
       const elements = document.querySelectorAll(".styled-paragraph, .resetBtn");
       elements.forEach(el => el.remove());
+      fightButton.disabled = true; // Keep the "Fight" button disabled until an image is selected again
   }
 
-  const buttons = document.querySelectorAll("button");
+  function selectImage(selectedImg) {
+      const images = document.querySelectorAll('.img-ind img');
+      images.forEach(img => img.classList.remove('selected'));
 
-  for (const button of buttons) {
-      button.addEventListener("click", createParagraph);
+      selectedImg.classList.add('selected');
+      fightButton.disabled = false; // Enable the "Fight" button when an image is selected
   }
+
+  fightButton.addEventListener("click", createParagraph);
+
+  const images = document.querySelectorAll('.img-ind img');
+  images.forEach(img => {
+      img.addEventListener('click', function() {
+          selectImage(this);
+      });
+  });
 });
-function selectImage(selectedImg){
-  const images=document.querySelectorAll('.img-ind img');
-  images.forEach(img=>img.classList.remove('selected'))
-
-  selectedImg.classList.add('selected');
-}
-function resetPage() {
-  location.reload(); // Reloads the page
-}
